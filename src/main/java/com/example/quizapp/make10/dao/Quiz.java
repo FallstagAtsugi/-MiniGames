@@ -1,4 +1,4 @@
-package com.example.quizapp;
+package com.example.quizapp.make10.dao;
 
 
 import lombok.AllArgsConstructor;
