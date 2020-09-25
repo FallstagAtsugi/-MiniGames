@@ -1,7 +1,7 @@
 package com.example.quizapp;
 
 
-import com.example.quizapp.make10.dao.Quiz;
+import com.example.quizapp.game.dao.Quiz;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select</title>
+</head>
+<body>
+<p style="text-align:center">さあ！GameTimeの始まりだ！！</p>
+<br>
+<br>
+<br>
+<form th:action="@{/page/show}" method="GET" class="create-form">
+    <div class="form-row">
+        <div class="col-2" style="text-align:center">
+            <button type="submit" class="btn btn-primary">Make10で遊ぶ</button>
+        </div>
+    </div>
+</form>
+<br>
+<div class="form-row">
+    <div class="col-2" style="text-align:center">
+        <button type="submit" class="btn btn-primary">×12マスター</button>
+    </div>
+</div>
+</body>
+</html>

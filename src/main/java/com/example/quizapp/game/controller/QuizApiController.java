@@ -1,7 +1,7 @@
-package com.example.quizapp.make10.contorller;
+package com.example.quizapp.game.controller;
 
-import com.example.quizapp.make10.dao.Quiz;
-import com.example.quizapp.make10.dao.QuizFileDao;
+import com.example.quizapp.game.dao.Quiz;
+import com.example.quizapp.game.dao.QuizFileDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +23,18 @@ public class QuizApiController {
     private List<Quiz> quizzes = new ArrayList<>();
     private QuizFileDao quizFileDao = new QuizFileDao();
     private Quiz quiz;
+
+    /**
+     * 遊ぶゲームの選択画面
+     */
+    @GetMapping("/select")
+    public String select(){
+        return "select";
+    }
+
+    /**
+     * Make10
+     */
 
     /*　ランダムでクイズを一軒だけ取得する　*/
     @GetMapping("quiz")
@@ -62,4 +74,11 @@ public class QuizApiController {
         }
         return "redirect:/page/show";
     }
+
+
+    /**
+     * PayRoll
+     */
+
+
 }

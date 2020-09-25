@@ -1,4 +1,4 @@
-package com.example.quizapp.make10.dao;
+package com.example.quizapp.game.dao;
 
 import java.io.IOException;
 import java.nio.file.Files;
