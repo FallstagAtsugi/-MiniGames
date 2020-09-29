@@ -1,7 +1,5 @@
 package com.example.quizapp.game.dao;
 
-import org.apache.tomcat.jni.File;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,9 +10,9 @@ import java.util.List;
 public class PayRollFileDao {
     private static final String FILE_PATH = "calc.txt";
 
-    public void writePayRoll(List<PayRollQuiz> payRollQuiz) throws IOException{
+    public void writePayRoll(List<PayRollQuiz> payRollQuiz) throws IOException {
         List<String> lines = new ArrayList<>();
-        for (PayRollQuiz quiz : payRollQuiz){
+        for (PayRollQuiz quiz : payRollQuiz) {
             lines.add(quiz.toString());
         }
 
@@ -27,7 +25,7 @@ public class PayRollFileDao {
         List<String> lines = Files.readAllLines(path);
 
         List<PayRollQuiz> payRollQuiz = new ArrayList<>();
-        for (String line : lines){
+        for (String line : lines) {
             payRollQuiz.add(PayRollQuiz.fromString(line));
         }
         return payRollQuiz;

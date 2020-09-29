@@ -25,7 +25,7 @@
 </head>
 <body>
 <div class="container">
-    <h2>クイズ一覧</h2>
+    <h2>問題一覧</h2>
     <div th:if="${successMessage}" class="alert alert-success" role="alert">
         <span th:text="${successMessage}"></span>
     </div>
@@ -45,19 +45,16 @@
         </div>
     </div>
     <!--    createボタンの実装はこれだけ　　-->
-    <form th:action="@{/page/create}"  method="POST" class="create-form">
+    <form th:action="@{/play/create}"  method="POST" class="create-form">
         <div class="form-row">
-            <div class="col-8">
-                <input type="text" class="form-control" placeholder="問題文" name="question">
-            </div>
-            <div class="col-2">
-                <select class="form-control" name="answer">
-                    <option value="true" selected>◯</option>
-                    <option value="false">×</option>
-                </select>
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="半角数字を入力" name="monthlyIncome">
             </div>
             <div class="col-2">
                 <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">遊ぶ</button>
             </div>
         </div>
     </form>

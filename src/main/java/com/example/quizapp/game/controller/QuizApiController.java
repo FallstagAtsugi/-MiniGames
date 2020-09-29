@@ -28,7 +28,7 @@ public class QuizApiController {
      * 遊ぶゲームの選択画面
      */
     @GetMapping("/select")
-    public String select(){
+    public String select() {
         return "select";
     }
 
@@ -47,7 +47,7 @@ public class QuizApiController {
 
     @GetMapping("show")
     public String show(Model model) {
-        model.addAttribute("quizzes",quizzes);
+        model.addAttribute("quizzes", quizzes);
         return "list";
     }
 
@@ -57,7 +57,7 @@ public class QuizApiController {
 
         for (Quiz check : quizzes) {
             if (check.getQuestion().equals(question)) {
-                model.addAttribute("quiz",check);
+                model.addAttribute("quiz", check);
             }
         }
         return "redirect:/page/quiz";
@@ -67,10 +67,10 @@ public class QuizApiController {
     public String load(RedirectAttributes attributes) {
         try {
             quizzes = quizFileDao.read();//読み込んだ結果をフィールドに代入してあげる
-            attributes.addFlashAttribute("successMessage","ファイルを読み込みました");
+            attributes.addFlashAttribute("successMessage", "ファイルを読み込みました");
         } catch (IOException e) { //read()メソッドで投げられた例外をこちらの処理でキャッチしている
             e.printStackTrace();
-            attributes.addFlashAttribute("errorMessage","ファイルの読み込みに失敗しました");
+            attributes.addFlashAttribute("errorMessage", "ファイルの読み込みに失敗しました");
         }
         return "redirect:/page/show";
     }
