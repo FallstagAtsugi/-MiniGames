@@ -15,25 +15,16 @@
         }
 
     </style>
-    <title>Make10</title>
+    <title>◯×クイズ</title>
 </head>
 <body>
-<p style="text-align:center"><b>連結せずに10を作りましょう！</b></p>
-<p style="text-align:center"><font color="58CE91">※絶対に10になる4桁のみです。</font></p>
-<div class="container" style="text-align:center">
-    <p th:text="${quiz.question}">問題文がここに入る</p>
-    <form th:action="@{/page/check}" method="GET">
-        <input type="hidden" name="question" th:value="${quiz.question}">
-        <button class="btn btn-success" name="answer" value="true">◯</button>
-    </form>
+<div class="container">
+    <p>
+        答え：<span th:text="${quiz.answer} ? '〇' : '×'">正解かどうかの表示</span>
+    </p>
+    <p th:text="${result}">正解かどうかの結果を表示をする</p>
+    <a th:href="@{/page/quiz}">もう1度遊ぶ</a>
 </div>
-<br>
-<br>
-<br>
-<div style="text-align:center">
-    <a href="http://www.quiz-puzzle.com/make10/answer/list.html" target="_blank">>どうしても答えがわからない時は…</a>
-</div>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

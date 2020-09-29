@@ -1,9 +1,10 @@
-package com.example.quizapp;
+package com.example.quizapp.game.controller;
 
+import com.example.quizapp.game.dao.Quiz;
+import com.example.quizapp.game.dao.QuizFileDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,6 +24,18 @@ public class QuizApiController {
     private QuizFileDao quizFileDao = new QuizFileDao();
     private Quiz quiz;
 
+    /**
+     * 遊ぶゲームの選択画面
+     */
+    @GetMapping("/select")
+    public String select() {
+        return "select";
+    }
+
+    /**
+     * Make10
+     */
+
     /*　ランダムでクイズを一軒だけ取得する　*/
     @GetMapping("quiz")
     public String quiz(Model model) {
@@ -34,7 +47,7 @@ public class QuizApiController {
 
     @GetMapping("show")
     public String show(Model model) {
-        model.addAttribute("quizzes",quizzes);
+        model.addAttribute("quizzes", quizzes);
         return "list";
     }
 
@@ -44,7 +57,7 @@ public class QuizApiController {
 
         for (Quiz check : quizzes) {
             if (check.getQuestion().equals(question)) {
-                model.addAttribute("quiz",check);
+                model.addAttribute("quiz", check);
             }
         }
         return "redirect:/page/quiz";
@@ -54,10 +67,10 @@ public class QuizApiController {
     public String load(RedirectAttributes attributes) {
         try {
             quizzes = quizFileDao.read();//読み込んだ結果をフィールドに代入してあげる
-            attributes.addFlashAttribute("successMessage","ファイルを読み込みました");
+            attributes.addFlashAttribute("successMessage", "ファイルを読み込みました");
         } catch (IOException e) { //read()メソッドで投げられた例外をこちらの処理でキャッチしている
             e.printStackTrace();
-            attributes.addFlashAttribute("errorMessage","ファイルの読み込みに失敗しました");
+            attributes.addFlashAttribute("errorMessage", "ファイルの読み込みに失敗しました");
         }
         return "redirect:/page/show";
     }

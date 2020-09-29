@@ -1,4 +1,4 @@
-package com.example.quizapp;
+package com.example.quizapp.game.dao;
 
 
 import lombok.AllArgsConstructor;
@@ -13,12 +13,12 @@ public class Quiz {
     private String question;
 
     @Override
-    public String toString(){
-        return  question;
+    public String toString() {
+        return question;
     }
 
     //line・・・・問題文　〇
-    public static Quiz fromString(String line){
+    public static Quiz fromString(String line) {
         return new Quiz(line);
     }
 }
