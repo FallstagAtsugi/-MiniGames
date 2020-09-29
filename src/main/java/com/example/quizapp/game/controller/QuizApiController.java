@@ -74,11 +74,4 @@ public class QuizApiController {
         }
         return "redirect:/page/show";
     }
-
-
-    /**
-     * PayRoll
-     */
-
-
 }
